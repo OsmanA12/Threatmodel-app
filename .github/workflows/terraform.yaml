@@ -48,6 +48,8 @@ jobs:
          terraform plan
   
      - name: applying our terraform
+       env:
+          TF_VAR_image_id: ${{ secrets.IMAGE_ID }
        run: |
          cd terraform
          terraform apply -auto-approve
