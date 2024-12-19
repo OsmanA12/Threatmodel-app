@@ -6,10 +6,10 @@ variable "ecs_task_defintion_id" {
 
 
 variable "image_id" {
-  type        = string
-  description = "The image ID from ECR"
+ type        = string
+ description = "The image id from ECR"
+ default     = "585768150963.dkr.ecr.eu-west-2.amazonaws.com/threatcomposer-osman"
 }
-
 
 
 variable "policy_arn" {
