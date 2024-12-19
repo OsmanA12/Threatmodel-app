@@ -1,24 +1,69 @@
-<div align="center">
-    <img src="./images/coderco.jpg" alt="CoderCo" width="300"/>
-</div>
 
-# CoderCo Assignment 1 - Open Source App Hosted on ECS with Terraform 🚀
+# Threat Composer App
 
-This project is based on Amazon's Threat Composer Tool, an open source tool designed to facilitate threat modeling and improve security assessments. You can explore the tool's dashboard here: [Threat Composer Tool](https://awslabs.github.io/threat-composer/workspaces/default/dashboard)
+## 🚀 Overview
+The **Threat Composer App** is a web application designed to simplify threat modeling, enabling users to identify and address potential security risks in their systems. Built with scalability and performance in mind, the app provides an intuitive interface for creating, visualizing, and managing threat models.
 
-## Task/Assignment 📝
+## ✨ Features
+- **Interactive Threat Modeling**: Create and update threat models effortlessly.
+- **Real-Time Collaboration**: Work with team members to ensure comprehensive threat coverage.
+- **Customizable Templates**: Use pre-built templates or create your own.
+- **Data Visualizations**: Generate visual insights into your threat models.
+- **Secure Deployment**: Hosted securely using AWS services, with automated pipelines for seamless updates.
 
-- Create your own repository and complete the task there. You may create a `app` in your repo and copy all the files in this directory into it. Or alternatively, you can use this directory as is. Your choice.
+## 🛠️ Technology Stack
+- **Frontend**: Built with modern JavaScript using **Yarn** as the package manager frameworks for a responsive interface.
+- **Backend**: Powered by Python/Flask for robust server-side logic.
+- **Database**: MySQL for structured data storage.
+- **Containerization**: Docker for consistent development and deployment.
+- **Cloud Hosting**: Deployed using AWS ECS and integrated with ECR.
+- **CI/CD**: GitHub Actions pipelines for automated testing, building, and deployment.
 
-- Your task will be to create a container image for the app, push it to ECR (recommended) or DockerHub. Ideally, you should use a CI/CD pipeline to build, test, and push the container image.
+## Screenshot of App
+Here is a screenshot of my app!
+<img width="1425" alt="Screenshot 2024-12-18 at 22 33 36" src="https://github.com/user-attachments/assets/6d2b0173-6b8e-4f3d-940f-e107e964e509" />
 
-- Deploy the app on ECS using Terraform. All the resources should be provisioned using Terraform. Use TF modules.
 
-- Make sure the app is live on `https://tm.<your-domain>` or `https://tm.labs.<your-domain>`
+## 📂 Project Structure
+```plaintext
+├── frontend/                # Frontend codebase
+├── backend/                 # Backend server and API
+├── infrastructure/          # Terraform files for AWS resource provisioning
+├── .github/workflows/       # CI/CD pipeline configurations
+└── README.md                # Project documentation (you're here!)
+```
 
-- App must use HTTPS. Hosted on ECS. Figure out the rest. Once app is live, add screenshots to the README.md file.
+## 🏗️ Deployment
+This application is deployed to AWS using CI/CD pipelines and the following infrastructure:
+1. **AWS ECS (Fargate)**: Manages container orchestration and scaling.
+2. **AWS ECR**: Stores container images.
+3. **Terraform**: Provisions all necessary AWS resources.
+4. **GitHub Actions**: Automates the testing, building, and deployment process.
 
-- Add architecture diagram of how the infrastructure is setup. (Use Lucidchart or draw.io or mermaid) You are free to use any diagramming tool.
+### CI/CD Pipelines
+The CI/CD pipelines ensure a seamless development workflow:
+- **Pipeline 1**: Lints and tests the codebase on every push.
+- **Pipeline 2**: Builds the Docker image, pushes it to ECR, and updates the ECS service.
+
+### Steps to Deploy
+1. **Set Up GitHub Secrets**:
+   - Add AWS credentials and other sensitive data to your GitHub repository's secrets (e.g., `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `ECR_REPOSITORY_URL`, etc.).
+
+2. **Build and Push Docker Image**:
+   - The pipeline will automatically handle the Docker build and push process when code is pushed to the main branch.
+
+3. **Provision AWS Resources**:
+   - Use Terraform to set up the necessary infrastructure:
+     ```bash
+     terraform init
+     terraform apply -auto-approve
+     ```
+
+## 🤝 Contributing
+Contributions are welcome! If you'd like to contribute, please open an issue or submit a pull request.
+
+
+🌟 **Thank you for exploring the Threat Composer App!** If you have any feedback or questions, feel free to reach out.
 
 ## Local app setup 💻
 
@@ -36,14 +81,3 @@ yarn global add serve
 serve -s build
 ```
 
-## Useful links 🔗
-
-- [Terraform AWS Registry](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-- [Terraform AWS ECS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster)
-- [Terraform Docs](https://www.terraform.io/docs/index.html)
-- [ECS Docs](https://docs.aws.amazon.com/ecs/latest/userguide/what-is-ecs.html)
-
-## Advice & Tips �
-
-- This is just a simple app, you may use another app if you'd like. 
-- Use best practices for your Terraform code. Use best practices for your container image. Use best practices for your CI/CD pipeline.
