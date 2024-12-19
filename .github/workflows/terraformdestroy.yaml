@@ -33,12 +33,12 @@ jobs:
 
        # Terraform
        - name: intialise provider
-         run: |
-          cd terraform
+         working-directory: ./terraform
+         run: 
           terraform init
 
 
        - name: terraform destroy
-         run: |
-          cd terraform
+         working-directory: ./terraform
+         run: 
           terraform destroy --auto-approve
